@@ -1,4 +1,4 @@
-from pyknow import *
+from experta import *
 
 diseases_list = []
 diseases_symptoms = []
@@ -13,17 +13,17 @@ def preprocess():
 	diseases_list = diseases_t.split("\n")
 	diseases.close()
 	for disease in diseases_list:
-		disease_s_file = open("Disease symptoms/" + disease + ".txt")
+		disease_s_file = open("Disease symptoms/" + disease + ".txt", encoding='utf-8')
 		disease_s_data = disease_s_file.read()
 		s_list = disease_s_data.split("\n")
 		diseases_symptoms.append(s_list)
 		symptom_map[str(s_list)] = disease
 		disease_s_file.close()
-		disease_s_file = open("Disease descriptions/" + disease + ".txt")
+		disease_s_file = open("Disease descriptions/" + disease + ".txt", encoding='utf-8')
 		disease_s_data = disease_s_file.read()
 		d_desc_map[disease] = disease_s_data
 		disease_s_file.close()
-		disease_s_file = open("Disease treatments/" + disease + ".txt")
+		disease_s_file = open("Disease treatments/" + disease + ".txt", encoding='utf-8')
 		disease_s_data = disease_s_file.read()
 		d_treatment_map[disease] = disease_s_data
 		disease_s_file.close()
